@@ -15,7 +15,7 @@ namespace WeatherTracker.WeatherRestClient
 
         public async Task<T> GetAllWeathers(string city)
         {
-            var json = await _httpClient.GetStringAsync(OpenWeatherApi + city + "&APPID=" + Key);
+            var json = await _httpClient.GetStringAsync(OpenWeatherApi + city + "&units=metric&APPID=" + Key);
             var getWeatherModels = JsonConvert.DeserializeObject<T>(json);
             return getWeatherModels;
         }
